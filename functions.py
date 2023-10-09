@@ -34,6 +34,101 @@ def Q119():
 
 def q120():
     '''Question 120'''
+    def get_input():
+        inp = int(input("1) Addition\n2) Subtraction\n-->")) == 1
+        if inp == 1:
+            addition()
+        elif inp == 2:
+            subtraction()
+        else:
+            print("Please select one of the options listed\n\n")
+            get_input()
+            
+    def addition():
+        num1 = random.randint(5,20)
+        num2 = random.randint(5,20)
+        
+        addedValue = num1 + num2
+        
+        if int(input(f"What is the value of {num1} + {num2}\n-->")) == addedValue:
+            print("Congratulations, you got it!")
+        else:
+            print(f"Incorrect! The correct answer was {addedValue}")
+            
+    def subtraction():
+        num1 = random.randint(25,50)
+        num2 = random.randint(1,25)
+        
+        subtractValue = num1 - num2
+        
+        if int(input(f"What is the value of {num1} - {num2}\n-->")) == subtractValue:
+            print("Congratulations, you got it!")
+        else:
+            print(f"Incorrect! The correct answer was {subtractValue}")
+            
+    get_input()
     
+def q121():
+    '''Question 121'''
+    names = []
     
+    def get_input():
+        inp = int(input(f"1) Add a name to the list\n2) Change a name in the list\n3) Delete a name in the list\n4) View all names in the list -->"))
+        match inp:
+            case 1:
+                add_name()
+            case 2:
+                change_name()
+            case 3:
+                delete_name()
+            case 4:
+                show_name()
+            case _:
+                print("Enter a valid input")
+                get_input()
+                
+    def add_name():
+        inp = str(input("Enter the name you would like to add -->"))
+        names.append(inp)
+        get_input()
     
+    def change_name():
+        inp = int(input("Which name would you like to edit (numbered from 0) -->"))
+        inp2 = str(input("Make changes -->"))
+        names[inp] = inp2
+        get_input()
+        
+    def delete_name():
+        inp = int(input("What owuld you like to ppopopo -->"))
+        names.pop(inp)
+        get_input()
+        
+    def show_name():
+        print(names)
+        get_input()
+        
+    get_input()
+    
+def q122():
+    '''Question 122'''
+    
+    def get_input():
+        inp = int(input(f"1) Add to file\n2) View all records\n3) Quit program\n--> "))
+        match inp:
+            case 1:
+                add_to_file()
+            case 2:
+                view_records()
+            case 3:
+                quit()
+            case _:
+                print("Enter a valid input")
+                get_input()
+    
+    def add_to_file():
+        file = open('salaries.csv', 'w+')
+        
+        
+        
+    
+        
