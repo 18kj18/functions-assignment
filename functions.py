@@ -11,7 +11,7 @@ def q118():
             print(count)
             count +=1
     
-    countToNumber(number())
+    count_to_number(number())
             
 
 
@@ -110,25 +110,53 @@ def q121():
     get_input()
     
 def q122():
-    '''Question 122'''
-    
+    '''Question 122 and Question 123'''
     def get_input():
-        inp = int(input(f"1) Add to file\n2) View all records\n3) Quit program\n--> "))
+        inp = int(input(f"1) Add to file\n2) View all records\n3) Delete a record\n4) Quit program\n--> "))
         match inp:
             case 1:
                 add_to_file()
             case 2:
                 view_records()
             case 3:
+                delete_record()
+            case 4:
                 quit()
             case _:
                 print("Enter a valid input")
                 get_input()
     
     def add_to_file():
-        file = open('salaries.csv', 'w+')
+        with open('salaries.csv', 'a') as file:
+            name = input("Enter your name --> ")
+            salary = int(input("Enter your salary -->"))
+            file.write(f"{name}, {salary}\n")
+        get_input()
+
+    def view_records():
+        with open('salaries.csv', 'r') as file:
+            print(file.readlines())
+        get_input()
         
+    def delete_record():
+        inp = int(input("Which record would you like to delete? -->"))
+        with open('salaries.csv', 'r') as file:
+            lines = []
+            count = 0
+            for line in file:
+                print(count, inp)
+                print(line)
+                if inp != count:
+                    print("hooray")
+                    lines += line
+                    
+                    
+                count += 1
+        with open('salaries.csv', 'w') as file:
+            for line in lines: 
+                file.write(line)           
+            
+        get_input()
         
-        
+    get_input()
     
-        
